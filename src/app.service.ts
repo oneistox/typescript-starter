@@ -16,11 +16,12 @@ export class AppService {
   }
 
   createFile(){
-  var fs = require('fs');
-  fs.writeFile('newfile.txt', 'Learn Node FS module', function (err) {
-  if (err) throw err;
+    var fs = require("fs");
+
+    var createFile = fs.createFile("s2.txt");
+    createFile.end();
     
-});
+
   }
 }
 

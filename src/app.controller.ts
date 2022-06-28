@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put } from '@nestjs/common';
+import { Body, Controller, Get, Post, Put } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller('/file')
@@ -12,8 +12,9 @@ export class AppController {
   }
 
   @Post('/')
-  writeFile(){
+  writeFile(@Body() nameParameter){
     return this.appService.writeFile();
+    
   }
 
   @Put('/')
