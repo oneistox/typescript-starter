@@ -5,21 +5,23 @@ import { promises as fs, writeFile,  } from 'fs';
 export class AppService {
 
   async readFile(): Promise<string> {
-    const readText = await fs.readFile('../files/s1.txt', 'utf8');
+    const readText = await fs.readFile('/Users/janavdhingra/typescript-starter/src/files/s1.txt', 'utf8');
     return readText;
   }
 
   async writeFile(): Promise<string>{
-    const editedFile = await fs.writeFile('../files/s1.txt', 'hey');
-    const readText = await fs.readFile('../files/s1.txt', 'utf8');
+    const editedFile = await fs.writeFile('/Users/janavdhingra/typescript-starter/src/files/s1.txt', 'hey');
+    const readText = await fs.readFile('/Users/janavdhingra/typescript-starter/src/files/s1.txt', 'utf8');
     return readText;
   }
 
-  async createFile(): Promise<File>{
-    var file = new File(["s2"], "s2.txt", {type: "text/plain",});
-    return file;
+  createFile(){
+  var fs = require('fs');
+  fs.writeFile('newfile.txt', 'Learn Node FS module', function (err) {
+  if (err) throw err;
+    
+});
   }
-
 }
 
 
