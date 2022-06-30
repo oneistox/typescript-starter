@@ -1,12 +1,22 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post, Put } from '@nestjs/common';
 import { AppService } from './app.service';
 
-@Controller()
+@Controller('/file')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @Get('/')
+  readFile() {
+    return this.appService.readFile();
+  }
+
+  @Post('/')
+  writeFile(){
+    return this.appService.writeFile();
+  }
+
+  @Put('/')
+  updateFile(){
+    return this.appService.createFile();
   }
 }
