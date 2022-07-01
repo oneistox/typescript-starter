@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { promises as fs, writeFile,  } from 'fs';
+import * as fs from 'node:fs/promises';
 
 @Injectable()
 export class AppService {
 
-  async readFile(): Promise<string> {
-    const readText = await fs.readFile('/Users/janavdhingra/typescript-starter/src/files/s1.txt', 'utf8');
+  async readFile(fileName): Promise<string> {
+    const readText = await fs.readFile(`/Users/janavdhingra/typescript-starter/src/files/${fileName}`, 'utf8');
     return readText;
   }
 
@@ -15,11 +15,7 @@ export class AppService {
     return readText;
   }
 
-  createFile(){
-  var fs = require('fs');
-  fs.writeFile('newfile.txt', 'Learn Node FS module', function (err) {
-  if (err) throw err;
-    
-});
+  async createFile(): Promise<any>{
+  await fs.writeFile('/Users/janavdhingra/typescript-starter/src/files/newFile.txt', 'Learn Node FS module');
   }
 }
