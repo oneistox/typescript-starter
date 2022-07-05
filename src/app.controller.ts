@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Put, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Post, Put, Query } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller('/')
@@ -15,7 +15,12 @@ export class AppController {
   }
 
   @Put('/')
-  updateFile(){
-    return this.appService.createFile();
+  updateFile(@Body() _abc:any){
+    return this.appService.createFile(_abc);
+  }
+
+  @Delete('/')
+  deletefile(){
+    return this.appService.deleteFile();
   }
 }

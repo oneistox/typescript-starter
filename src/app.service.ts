@@ -15,7 +15,11 @@ export class AppService {
     return readText;
   }
 
-  async createFile(): Promise<any>{
-  await fs.writeFile('/Users/janavdhingra/typescript-starter/src/files/newFile.txt', 'Learn Node FS module');
+  async createFile(_abc: any): Promise<any>{
+  await fs.writeFile('/Users/janavdhingra/typescript-starter/src/files/newFile2.txt', _abc.name);
+  }
+
+  async deleteFile(){
+    await fs.unlink('/Users/janavdhingra/typescript-starter/src/files/newFile1.txt')
   }
 }
