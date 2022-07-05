@@ -4,22 +4,23 @@ import * as fs from 'node:fs/promises';
 @Injectable()
 export class AppService {
 
-  async readFile(fileName): Promise<string> {
+  async readFile(fileName: string): Promise<string> {
     const readText = await fs.readFile(`/Users/janavdhingra/typescript-starter/src/files/${fileName}`, 'utf8');
     return readText;
   }
 
-  async writeFile(_body: any): Promise<string>{
-    const editedFile = await fs.writeFile('/Users/janavdhingra/typescript-starter/src/files/s1.txt', _body.name);
-    const readText = await fs.readFile('/Users/janavdhingra/typescript-starter/src/files/s1.txt', 'utf8');
+  async writeFile(fileName:string , _body: any ): Promise<string>{
+    const editedFile = await fs.writeFile(`/Users/janavdhingra/typescript-starter/src/files/${fileName}`, _body.name);
+    const readText = await fs.readFile(`/Users/janavdhingra/typescript-starter/src/files/${fileName}`, 'utf8');
     return readText;
   }
 
-  async updateFile(_abc: any): Promise<any>{
-  await fs.appendFile('/Users/janavdhingra/typescript-starter/src/files/newFile1.txt', _abc.name);
+  async createFile( fileName:string, _body2: any): Promise<any>{
+  await fs.appendFile(`/Users/janavdhingra/typescript-starter/src/files/${fileName}`, _body2.name);
   }
 
-  async deleteFile(){
-    await fs.unlink('/Users/janavdhingra/typescript-starter/src/files/newFile1.txt')
+  async deleteFile(fileName: string){
+    await fs.unlink(`/Users/janavdhingra/typescript-starter/src/files/${fileName}`)
+    return 1;
   }
 }

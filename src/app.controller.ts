@@ -4,23 +4,24 @@ import { AppService } from './app.service';
 @Controller('/')
 export class AppController {
   constructor(private readonly appService: AppService) {}
+  
   @Get('/file')
   readFile(@Query('file-name') fileName: string) {
     return this.appService.readFile(fileName);
   }
 
   @Post('/')
-  writeFile(@Body() _body:any){
-    return this.appService.writeFile(_body);
+  writeFile(@Query('file-name')fileName: string , @Body() _body:any){
+    return this.appService.writeFile(_body , fileName);
   }
 
   @Put('/')
-  updateFile(@Body() _abc:any){
-    return this.appService.updateFile(_abc);
+  createFile(@Query('file-name')fileName: string , @Body() _body2:any){
+    return this.appService.createFile(_body2 , fileName);
   }
 
   @Delete('/')
-  deletefile(){
-    return this.appService.deleteFile();
+  deletefile(@Query('file-name')fileName: string){
+    return this.appService.deleteFile(fileName);
   }
 }
