@@ -16,7 +16,7 @@ export class AppController {
 
   @Put('/')
   updateFile(@Body() _abc:any){
-    return this.appService.createFile(_abc);
+    return this.appService.updateFile(_abc);
   }
 
   @Delete('/')

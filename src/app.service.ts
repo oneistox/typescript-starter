@@ -15,8 +15,8 @@ export class AppService {
     return readText;
   }
 
-  async createFile(_abc: any): Promise<any>{
-  await fs.writeFile('/Users/janavdhingra/typescript-starter/src/files/newFile2.txt', _abc.name);
+  async updateFile(_abc: any): Promise<any>{
+  await fs.appendFile('/Users/janavdhingra/typescript-starter/src/files/newFile1.txt', _abc.name);
   }
 
   async deleteFile(){
